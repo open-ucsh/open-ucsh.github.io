@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Publicar en GitHub Pages
 
 on:
   push:
@@ -16,39 +16,48 @@ concurrency:
 
 jobs:
   build:
+    name: Construir sitio
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Checkout
+      - name: Obtener código
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
+      - name: Configurar pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
 
-      - name: Setup Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
-
-      - name: Setup Pages
+      - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Construir sitio con Astro
+        run: pnpm build
+
+      - name: Subir sitio generado
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-      - name: Deploy
+  deploy:
+    name: Publicar sitio
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Publicar en GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
