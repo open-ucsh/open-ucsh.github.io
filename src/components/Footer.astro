@@ -1,0 +1,75 @@
+---
+import { footerGroups, site } from "../data/site";
+---
+
+<footer
+  id="comunidad"
+  aria-labelledby="footer-title"
+  class="mx-auto max-w-6xl scroll-mt-8 px-6 pb-12"
+>
+  <div class="flex items-center gap-6">
+    <span class="h-px flex-1 bg-border" aria-hidden="true"></span>
+
+    <h2
+      id="footer-title"
+      class="font-mono text-xs font-normal tracking-widest text-muted uppercase"
+    >
+      Comunidad
+    </h2>
+
+    <span class="h-px flex-1 bg-border" aria-hidden="true"></span>
+  </div>
+
+  <div class="grid gap-10 pt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+    <div>
+      <img
+        src="/logo.png"
+        alt={site.name}
+        width="48"
+        height="48"
+        loading="lazy"
+        class="size-12 object-contain"
+      />
+
+      <p class="mt-5 text-sm leading-relaxed text-muted">
+        Aprender y compartir, juntos.
+      </p>
+    </div>
+
+    {
+      footerGroups.map((group) => (
+        <nav aria-label={group.title}>
+          <h3 class="mb-6 font-mono text-xs font-normal tracking-widest text-muted uppercase">
+            {group.title}
+          </h3>
+
+          <ul class="space-y-3">
+            {group.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="-ml-2 inline-block rounded-md px-2 py-1 text-sm leading-relaxed text-muted transition-colors hover:bg-surface-hover hover:text-link-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-reduce:transition-none"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+
+    <div>
+      <h3
+        class="mb-6 font-mono text-xs font-normal tracking-widest text-muted uppercase"
+      >
+        Hecho en comunidad
+      </h3>
+
+      <p class="text-sm leading-relaxed text-muted">
+        Por estudiantes,<br />
+        para estudiantes.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,47 @@
+---
+import { site } from "../data/site";
+---
+
+<section
+  aria-labelledby="hero-title"
+  class="mx-auto max-w-3xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32"
+>
+  <img
+    src="/logo.png"
+    alt={`Logo de ${site.name}`}
+    width="120"
+    height="120"
+    class="mb-12 size-24 object-contain sm:size-30"
+  />
+
+  <h1 id="hero-title" class="text-4xl leading-tight font-normal tracking-tight">
+    {site.name}
+  </h1>
+
+  <p class="mt-5 text-lg leading-relaxed text-muted sm:text-xl">
+    Una comunidad abierta para aprender y crear.
+  </p>
+
+  <p class="mt-10 text-lg leading-relaxed text-muted sm:text-xl">
+    Creado por estudiantes de la UCSH.<br class="hidden sm:block" />
+    Compartimos código, ideas y ganas de aprender.
+  </p>
+
+  <div class="mt-10 flex flex-wrap gap-3">
+    <a
+      href={site.github}
+      class="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-brand px-6 py-3 font-mono text-sm text-on-primary transition-colors hover:bg-brand-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand motion-reduce:transition-none"
+    >
+      Contribuir en GitHub
+      <span aria-hidden="true">↗</span>
+    </a>
+
+    <a
+      href="#comunidad"
+      class="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-surface px-6 py-3 font-mono text-sm transition-colors hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand motion-reduce:transition-none"
+    >
+      Conócenos
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Ubuntu", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-brand: #004574;
+  --color-brand-hover: #005b98;
+  --color-accent: #f2c100;
+
+  --color-background: #ffffff;
+  --color-surface: #f7f8fa;
+  --color-surface-hover: #edf2f7;
+  --color-border: #d7dee7;
+
+  --color-foreground: #17324d;
+  --color-muted: #6b7280;
+  --color-on-primary: #ffffff;
+  --color-on-accent: #17324d;
+
+  --color-link: #004574;
+  --color-link-hover: #005b98;
+
+  --color-success-background: #e8f5e9;
+  --color-success-border: #2e7d32;
+  --color-success-text: #1b5e20;
+
+  --color-warning-background: #fff8e1;
+  --color-warning-border: #f2c100;
+  --color-warning-text: #795500;
+
+  --color-error-background: #fdecec;
+  --color-error-border: #c62828;
+  --color-error-text: #8e0000;
+
+  --color-info-background: #eaf4fb;
+  --color-info-border: #1976a8;
+  --color-info-text: #0d4f71;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgb(23 50 77 / 0.08);
+  --shadow-md: 0 4px 12px rgb(23 50 77 / 0.12);
+}
