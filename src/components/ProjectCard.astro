@@ -1,0 +1,126 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="min-w-0">
+  <a
+    href={project.href}
+    class="group flex h-full items-center gap-4 rounded-lg border border-border/60 bg-surface p-3 transition-colors hover:border-border hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand motion-reduce:transition-none"
+  >
+    <div
+      class="flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border/50 bg-background"
+      aria-hidden="true"
+    >
+      {
+        project.preview === "venn" ? (
+          <svg
+            viewBox="0 0 80 80"
+            fill="none"
+            class="size-full"
+            aria-hidden="true"
+          >
+            <circle
+              cx="46"
+              cy="30"
+              r="23"
+              fill="#239B83"
+              fill-opacity="0.1"
+              stroke="#239B83"
+              stroke-width="1.2"
+            />
+            <circle
+              cx="32"
+              cy="50"
+              r="23"
+              fill="#4AA9BD"
+              fill-opacity="0.1"
+              stroke="#4AA9BD"
+              stroke-width="1.2"
+            />
+          </svg>
+        ) : (
+          <svg
+            viewBox="0 0 80 80"
+            fill="none"
+            class="size-full"
+            aria-hidden="true"
+          >
+            <path
+              d="M40 26V34M31 43H22M49 43H58"
+              stroke="#94A3B8"
+              stroke-width="1.2"
+            />
+
+            <rect
+              x="29"
+              y="12"
+              width="22"
+              height="14"
+              rx="2"
+              fill="#ECFDF5"
+              stroke="#239B83"
+            />
+
+            <path
+              d="M40 34L50 43L40 52L30 43L40 34Z"
+              fill="#ECFDF5"
+              stroke="#239B83"
+            />
+
+            <rect
+              x="5"
+              y="36"
+              width="17"
+              height="14"
+              rx="2"
+              fill="#EFF6FF"
+              stroke="#5085ED"
+            />
+
+            <rect
+              x="58"
+              y="36"
+              width="17"
+              height="14"
+              rx="2"
+              fill="#FFF7ED"
+              stroke="#EB9952"
+            />
+          </svg>
+        )
+      }
+    </div>
+
+    <div class="min-w-0 flex-1">
+      <h3 class="text-sm leading-snug font-medium text-foreground">
+        {project.title}
+      </h3>
+
+      <p class="mt-2 text-xs leading-relaxed text-muted">
+        {project.description}
+      </p>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="mt-1 shrink-0 self-start text-muted transition-colors group-hover:text-brand motion-reduce:transition-none"
+      aria-hidden="true"
+    >
+      <path d="M7 17L17 7M7 7h10v10"></path>
+    </svg>
+  </a>
+</article>
